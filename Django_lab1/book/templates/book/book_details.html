@@ -1,0 +1,27 @@
+{% extends 'main/base_layout.html' %}
+
+{% block main-content %}
+<div class="container">
+    <h1>Welcome to book details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Book Details</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>ID:</strong> {{ book_id }}</li>
+                <li class="list-group-item"><strong>Name:</strong> {{ book_name }}</li>
+                <li class="list-group-item"><strong>Priority:</strong> {{ book_priority }}</li>
+                <li class="list-group-item"><strong>Description:</strong> {{ book_description }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% if book_priority > 3 %}
+    <h1>High Priority</h1>
+{% else %}
+    <h1>Low Priority</h1>
+{% endif %}
+
+<a href="{% url 'book:index' %}">Back to Index</a>
+<a href="{% url 'book:book-list' %}">Back to List</a>
