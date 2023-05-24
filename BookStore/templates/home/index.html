@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <a class="btn btn-dark" href="{% url 'book_store:home-create' %}">NEW</a>
+  <table class="table table-hover py-3 mt-3">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">ID</th>
+        <th scope="col">Author</th>
+        <th scope="col">Title</th>
+        <th scope="col">Desc.</th>
+        <th scope="col">Type</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Views</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      {% for book in books %}
+      <tr>
+        <th scope="row">{{book.id}}</th>
+        <td>{{book.author_name}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.rate}}</td>
+        <td>{{book.views}}</td>
+        <td>
+          <a
+            href="{% url 'book_store:home-edit' book.id %}"
+            type="button"
+            class="btn btn-warning"
+            >Edit</a
+          >
+          <a
+            href="{% url 'book_store:home-show' book.id %}"
+            type="button"
+            class="btn btn-primary"
+            >Show</a
+          >
+          <a
+            href="{% url 'book_store:home-destroy' book.id %}"
+            type="button"
+            class="btn btn-danger"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<div class="card w-50 mb-5" style="margin: 0 auto">
+  <div class="card-body">
+    <h2 class="text-center">Update Book Number <span id="bookId">{{ book.id }}</span></h2>
+    <form
+      class="container d-flex flex-column justify-content-center gap-3"
+      id="form-edit"
+      method="POST"
+      action="{% url 'book_store:home-update' book.id %}"
+    >
+      {% csrf_token %} {% for field in form %}
+      <div class="form-group d-flex flex-column justify-content-center">{{ field }}</div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    {% endblock %}
+  </div>
+</div>
