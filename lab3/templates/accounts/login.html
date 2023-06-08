@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-pzP5q32RMHHZ3Sik+wWof9/cTPT+jYcHkTcrjvlWq08cAw55i9asKj0xMN7akbzn" crossorigin="anonymous" />
+  <title>Login</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form method="POST" class="mt-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-dark mt-3" type="submit">Login</button>
+      <a class="navbar-brand h1 mt-3" href="{% url 'user:signup' %}">Not registered yet? Sign up now</a>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-T2AMHmdv1jCpMqXm2ovX6Qb13Pkf8ZiV6VzmP8VKSRFSgtnyjbJ01iLkAYJugvfC" crossorigin="anonymous"></script>
+</body>
+</html>
